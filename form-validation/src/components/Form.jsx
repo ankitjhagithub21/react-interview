@@ -104,7 +104,7 @@ const Form = ({ setUsers }) => {
             value={formData.confirmPassword}
             onChange={handleChange}
           />
-          {error && <p className="text-red-600 text-sm">{error}</p>}
+          {error && <p className=" text-white text-sm">{error}</p>}
           <button
             type="submit"
             className="bg-green-600 p-2 rounded-lg text-white hover:bg-green-700"
