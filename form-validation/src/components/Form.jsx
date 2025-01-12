@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Form = ({ users, setUsers }) => {
+const Form = ({ setUsers }) => {
   const initialData = {
     fullName: "",
     email: "",
@@ -69,13 +69,13 @@ const Form = ({ users, setUsers }) => {
 <Link to={"/users"} className="bg-green-500 text-white rounded-lg px-4 py-2">All Users</Link>
 </div>
 
-      <div className="max-w-md w-full p-5 rounded-lg bg-white shadow-xl">
-        <h2 className="mb-5 text-2xl font-bold">Add User</h2>
+      <div className="max-w-md w-full p-5 rounded-lg border shadow-xl">
+        <h2 className="mb-5 text-2xl text-white">Add User</h2>
         <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Enter your name"
-            className="px-4 py-2 text-gray-800 outline-none bg-gray-300 rounded-lg ring-green-600 focus:ring-2"
+            className="px-4 py-2 text-gray-800 outline-none bg-gray-300 rounded-lg  ring-green-600 focus:ring-2"
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}

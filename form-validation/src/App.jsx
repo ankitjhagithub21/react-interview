@@ -10,7 +10,7 @@ const App = () => {
       <ToastContainer />
       <Routes>
        
-        <Route path='/' element={<Form users={users} setUsers ={setUsers}/>}/>
+        <Route path='/' element={<Form setUsers ={setUsers}/>}/>
         <Route path='/users' element={<Users users={users}/>}/>
       </Routes>
       
