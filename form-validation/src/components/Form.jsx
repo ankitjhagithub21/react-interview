@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const Form = () => {
+const Form = ({ users, setUsers }) => {
   const initialData = {
     fullName: "",
     email: "",
@@ -9,7 +11,8 @@ const Form = () => {
   };
 
   const [formData, setFormData] = useState(initialData);
-  const [error, setError] = useState("This is an error");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,32 +33,42 @@ const Form = () => {
       return;
     }
 
-    if(formData.password.length <8){
-        setError("Password length must be 8 characters.")
-        return;
+    if (formData.password.length < 8) {
+      setError("Password length must be 8 characters.");
+      return;
     }
 
-    if(!/[!@#$%^&?*<>]/.test(formData.password)){
-        setError("Password must contain atleast one special character.")
-        return;
+    if (!/[!@#$%^&?*<>]/.test(formData.password)) {
+      setError("Password must contain atleast one special character.");
+      return;
     }
 
-    if(!/[A-Z]/.test(formData.password)){
-        setError("Password must contain atleast one uppercase letter.")
-        return;
-    }
- 
-    if(formData.password != formData.confirmPassword){
-        setError("Password and Confirm password must be same.")
-        return;
+    if (!/[A-Z]/.test(formData.password)) {
+      setError("Password must contain atleast one uppercase letter.");
+      return;
     }
 
-    setError("")
+    if (formData.password != formData.confirmPassword) {
+      setError("Password and Confirm password must be same.");
+      return;
+    }
 
+    setError("");
+
+    toast.success("Form submitted.");
+
+    setUsers((prev) => [...prev, formData]);
+    setFormData(initialData);
+    navigate("/users");
 
   };
   return (
-    <div className="h-screen w-full flex items-center justify-center p-5 bg-gray-800">
+    <div className="h-screen relative w-full flex items-center justify-center p-5 bg-gray-800">
+
+<div className="absolute top-5 left-5">
+<Link to={"/users"} className="bg-green-500 text-white rounded-lg px-4 py-2">All Users</Link>
+</div>
+
       <div className="max-w-md w-full p-5 rounded-lg bg-white shadow-xl">
         <h2 className="mb-5 text-2xl font-bold">Add User</h2>
         <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
@@ -91,7 +104,7 @@ const Form = () => {
             value={formData.confirmPassword}
             onChange={handleChange}
           />
-          {error && <p className="text-red-600">{error}</p>}
+          {error && <p className="text-red-600 text-sm">{error}</p>}
           <button
             type="submit"
             className="bg-green-600 p-2 rounded-lg text-white hover:bg-green-700"
