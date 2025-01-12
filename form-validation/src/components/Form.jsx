@@ -75,7 +75,7 @@ const Form = ({ setUsers }) => {
           <input
             type="text"
             placeholder="Enter your name"
-            className="px-4 py-2 text-gray-800 outline-none bg-gray-300 rounded-lg  ring-green-600 focus:ring-2"
+            className="px-4 py-2 text-gray-800 outline-none bg-gray-100 rounded-lg  ring-green-600 focus:ring-2"
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
@@ -83,7 +83,7 @@ const Form = ({ setUsers }) => {
           <input
             type="text"
             placeholder="Enter your email"
-            className="px-4 py-2 text-gray-800 outline-none bg-gray-300 rounded-lg ring-green-600 focus:ring-2"
+            className="px-4 py-2 text-gray-800 outline-none bg-gray-100 rounded-lg ring-green-600 focus:ring-2"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -91,7 +91,7 @@ const Form = ({ setUsers }) => {
           <input
             type="password"
             placeholder="Enter your password"
-            className="px-4 py-2 text-gray-800 outline-none bg-gray-300 rounded-lg ring-green-600 focus:ring-2"
+            className="px-4 py-2 text-gray-800 outline-none bg-gray-100 rounded-lg ring-green-600 focus:ring-2"
             name="password"
             value={formData.password}
             onChange={handleChange}
@@ -99,7 +99,7 @@ const Form = ({ setUsers }) => {
           <input
             type="password"
             placeholder="Confirm password"
-            className="px-4 py-2 text-gray-800 outline-none bg-gray-300 rounded-lg ring-green-600 focus:ring-2"
+            className="px-4 py-2 text-gray-800 outline-none bg-gray-100 rounded-lg ring-green-600 focus:ring-2"
             name="confirmPassword"
             value={formData.confirmPassword}
             onChange={handleChange}
